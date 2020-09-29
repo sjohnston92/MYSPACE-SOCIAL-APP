@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {Card, Container} from 'react-bootstrap';
+import {Card, Container, Button } from 'react-bootstrap';
 
 
 
@@ -11,12 +11,13 @@ const Home = () => {
   const addFriend = async (id) => {
     let res = axios.put(`/api/friends/${id}`);
     
-    const addedFriends = friends.filter((friend) => friend.id !== id);
+    removeFriendFromUI(id)
   };
 
   const removeFriendFromUI = (id) => {
-    const addedFriends = friends.filter((friend) => friend.id !== id);
-    setFriends(addedFriends);
+  //  TODO removeFriendFromUI currently removes all instances of renderFriends() on homepage
+    const filterFriends = friends.filter((friend) => friend.id !== id);
+    setFriends(filterFriends);
   }
 
   const getFriends = async () => {
@@ -61,6 +62,10 @@ const Home = () => {
               {friend.age}
             </Card.Text>
             </Card.Body>
+            <Button variant="success" onClick={() => addFriend(friend.id)}>	&#x2714; Add
+            </Button>
+            <Button variant="info" onClick={() => removeFriendFromUI(friend.id)}> &#128128; Reject
+            </Button>
           </Card>
         </div>
 
@@ -72,7 +77,11 @@ const Home = () => {
 
 return(
   <Container>
+  
+  {renderFriends()} 
+  <br />
   {renderFriends()}
+  <br />
   {renderFriends()}
   </Container>
 );
