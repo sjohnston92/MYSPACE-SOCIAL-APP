@@ -1,10 +1,10 @@
 import Axios from "axios";
 import React, {useState, useEffect} from "react";
-import {Jumbotron, Badge} from "react-bootstrap";
+import {Jumbotron, Badge,Button} from "react-bootstrap";
 
 const MyFriend = () => {
 
-  const [friends,setFriends]= useState=([]);
+  const [friends,setFriends]= useState([]);
   
   async function getLikedFriends(){
     try{
@@ -15,7 +15,7 @@ const MyFriend = () => {
     };
   };
 
-  useEffect(() =>{
+  useEffect(() => {
      getLikedFriends();
   },[])
   
@@ -31,6 +31,8 @@ return (
             <Jumbotron key={friend.id}>
             <h1>{friend.name} <Badge variant="secondary">{friend.age}</Badge> </h1> 
             <p>{friend.bio}</p>
+            <br />
+            <Button> Make Top 8</Button>
             </Jumbotron>
         
         ))}     
