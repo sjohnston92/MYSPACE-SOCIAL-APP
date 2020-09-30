@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {Card, Container, Button } from 'react-bootstrap';
+import {Card, Container, Button,Row,Col } from 'react-bootstrap';
+
 
 
 
@@ -77,12 +78,13 @@ const Home = () => {
 
 return(
   <Container>
-  
+  <h1>MySpace</h1>
+  <br />
+  <Row xs={2} md={4} lg={6} className="justify-content-center">
   {renderFriends()} 
-  <br />
   {renderFriends()}
-  <br />
   {renderFriends()}
+  </Row>
   </Container>
 );
 }

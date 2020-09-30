@@ -13,8 +13,7 @@ const getRightNav = () => {
   if (user) {
     return (
       <>
-      <NavDropdown.Item
-        onClick={() => console.log("hello")}> User Info
+      <NavDropdown.Item href="/my_friends"> User Info
       </NavDropdown.Item>
       <NavDropdown.Item
         onClick={() => 

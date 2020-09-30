@@ -9,6 +9,7 @@ import Login from "./Components/Login";
 import FetchUser from "./Components/FetchUser";
 import ProtectedRoute from './Components/ProtectedRoute';
 import Lander from './Components/Lander';
+import MyFriend from './Components/myFriend';
 
 
 import './App.css';
@@ -27,6 +28,7 @@ const App = () => (
         <Route exact path="/" component={Lander} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/my_friends" component={MyFriend} />
         <Route component={NoMatch} />
       </Switch>
     </Container>

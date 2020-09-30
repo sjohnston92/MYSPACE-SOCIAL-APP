@@ -8,11 +8,11 @@ class Api::FriendsController < ApplicationController
 
   def update
     # Occasion where we need to have a single friend updated
-    current_user.liked_friends << params[:id].to_i
+    current_user.liked_friend << params[:id].to_i
     current_user.save
   end
 
   def my_friends
-    render json: User.liked(current_user.liked_friends)
+    render json: User.liked(current_user.liked_friend)
   end
 end
