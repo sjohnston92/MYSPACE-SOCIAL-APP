@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   serialize :liked_friend, Array
 
-
+  has_many :posts
 
 
   def self.liked(ids)

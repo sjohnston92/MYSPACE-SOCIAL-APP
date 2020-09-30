@@ -26,13 +26,17 @@ const MyFriend = () => {
 
 return (
         <>
+        <h3> Top 4</h3>
 
+
+
+        <h3>Friends</h3>
        {friends.map((friend) => (
             <Jumbotron key={friend.id}>
             <h1>{friend.name} <Badge variant="secondary">{friend.age}</Badge> </h1> 
             <p>{friend.bio}</p>
             <br />
-            <Button> Make Top 8</Button>
+            <Button> Make Top 4</Button>
             </Jumbotron>
         
         ))}     
