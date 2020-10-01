@@ -7,12 +7,13 @@ import {Form, Button} from 'react-bootstrap';
 
 
 const PostForm = (props)=> {
-  const [body,setBody]= useState("")
+  const [body,setBody]= useState([]);
 
 
 
 
   const handleSubmit = (e) => {
+   
     e.preventDefault();
     axios.post("/api/posts", {body})
     .then((res) =>{

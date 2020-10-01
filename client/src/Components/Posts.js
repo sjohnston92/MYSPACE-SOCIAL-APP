@@ -11,16 +11,16 @@ const Posts = () => {
 
   const [posts, setPosts] = useState(basePosts);
 
-  // useEffect(() => {
-  //   axios.get("/api/posts")
-  //     .then( res => {
-  //       setPosts(res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err.response);
-  //       alert("not able to get posts");
-  //     });
-  // }, []);
+  useEffect(() => {
+    axios.get("/api/posts")
+      .then( res => {
+        setPosts(res.data);
+      })
+      .catch((err) => {
+        console.log(err.response);
+        alert("not able to get posts");
+      });
+  }, []);
 
   const renderPosts = () => {
     return posts.map((post) => (
@@ -34,7 +34,9 @@ const Posts = () => {
     ));
   };
 
-  
+  const addPost = (post) => {
+    console.log(post);
+  };
   return ( 
   <>
   <h1>My Posts</h1>

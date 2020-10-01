@@ -12,16 +12,16 @@ const Profile = () => {
 
   const [posts,setPosts]= useState([]);
 
-  // useEffect(() => {
-  //   axios
-  //     .get("/api/posts")
-  //     .then((res) => {
-  //       setPosts(res.data);
-  //     })
-  //     .catch((err) => {
-  //       alert("error on Profile");
-  //     })
-  // }, []);
+  useEffect(() => {
+    axios
+      .get("/api/posts")
+      .then((res) => {
+        setPosts(res.data);
+      })
+      .catch((err) => {
+        alert("error on Profile");
+      })
+  }, []);
 
   //add post here
 const addPost = (post) =>setPosts([...posts,post])
@@ -29,13 +29,13 @@ const addPost = (post) =>setPosts([...posts,post])
   
 
   return(
-    <>
+    <Container>
   <h1>Profile</h1>
   
     <PostForm add={addPost} />
     <br />
     <Posts />
-    </>
+    </Container>
 
   )
 }
